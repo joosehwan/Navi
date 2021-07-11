@@ -97,13 +97,14 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
+import java.util.TreeSet;
 import java.util.Vector;
 
 /**
  * An activity that uses a TensorFlowMultiBoxDetector and ObjectTracker to detect and then track
  * objects.
  */
-public class DetectorActivity extends CameraActivity implements OnImageAvailableListener {
+public class DetectorActivity<Resultlabel> extends CameraActivity implements OnImageAvailableListener {
 
 
     private static final Logger LOGGER = new Logger();
@@ -160,7 +161,8 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
     private Matrix frameToCropTransform;
     private Matrix cropToFrameTransform;
 
-    private MultiBoxTracker tracker;
+    public MultiBoxTracker tracker;
+
     private OverlayView trackingOverlay;
 
     private byte[] luminanceCopy;
@@ -183,22 +185,34 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 
 
     TensorFlowYoloDetector tensorFlowYoloDetector = new TensorFlowYoloDetector();
-
-
+    TreeSet<String> arr ;
+    ArrayList<String> Deduplicated_labellist;
+    static String Deduplicated_images;
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
 
+        ;
 
-//
         ImageButton detectedClass = findViewById(R.id.cameraclick);
         detectedClass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//      Log.i("bt", "버튼누름");
-                Toast.makeText(getApplicationContext(), tensorFlowYoloDetector.hangul_class, Toast.LENGTH_SHORT).show();
-
-                LOGGER.i("%s  %s", "버튼눌러서 나온 값 : ", tensorFlowYoloDetector.hangul_class);
+                if (tensorFlowYoloDetector.clone == null) {
+                    Log.e("값", "clone is empty? = null");
+                } else {
+                    // TreeSet으로 리스트 중복제거.
+                    arr = new TreeSet<>(tensorFlowYoloDetector.clone);    // treeset에 labellist값 대입
+                    Deduplicated_labellist = new ArrayList<String>(arr); //중복제거된 treeset을 다시대입
+                    for (String i : Deduplicated_labellist) { //for문을 통한 전체출력
+                        System.out.println("제거 후 = " + i);
+                       }
+                }
+    Toast.makeText(getApplicationContext(), Deduplicated_images, Toast.LENGTH_SHORT).show();
+//
+//                LOGGER.i("%s  %s", "버튼눌러서 나온 값 : ", tensorFlowYoloDetector.hangul_class);
                 voice.TTS("전방에" + tensorFlowYoloDetector.hangul_class + " 가 있습니다.");
             }
         });
@@ -807,7 +821,6 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
                         // ~~~~
 
 //                         맵데이터를 서비스에 셋팅을 완료한 후 navigate를 실행하기 위해, callback 함수를 통해 사용한다.
-
 
 
                     }

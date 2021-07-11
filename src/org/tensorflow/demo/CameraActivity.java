@@ -127,7 +127,7 @@ public abstract class CameraActivity extends Activity
     @Override
     public void onPreviewFrame(final byte[] bytes, final Camera camera) {
         if (isProcessingFrame) {
-            LOGGER.w("Dropping frame!");
+//            LOGGER.w("Dropping frame!");
             return;
         }
 
@@ -141,7 +141,7 @@ public abstract class CameraActivity extends Activity
                 onPreviewSizeChosen(new Size(previewSize.width, previewSize.height), 90);
             }
         } catch (final Exception e) {
-            LOGGER.e(e, "Exception!");
+//            LOGGER.e(e, "Exception!");
             return;
         }
 
