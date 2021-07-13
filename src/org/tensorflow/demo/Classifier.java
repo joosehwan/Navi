@@ -169,37 +169,6 @@ public interface Classifier {
       int colIdx = (int) (this.location.centerY() / (this.bitmapHeight / colDim));
       return new MatIdx(rowIdx,colIdx,rowDim,colDim);
     }
-
-    public void Announce(Voice voice){
-      switch (this.idx){
-        case 0:
-        case 1: voice.TTS("경로를 잘 따라가는 중입니다.");
-                break;
-
-        case 2: if(this.count >= 3 )
-                  voice.TTS("전방에 사람이 혼잡합니다.");
-                break;
-
-        case 3:
-          break;
-
-        case 4:
-          voice.TTS("내려가는 계단이 계속 진행 중입니다.");
-          break;
-
-        case 5:
-          break;
-
-        case 6:
-          break;
-
-        case 7:
-          voice.TTS("전방에 기둥이 있습니다.");
-          break;
-      }
-      this.announced = true;
-    }
-
   }
 
   List<Recognition> recognizeImage(Bitmap bitmap);

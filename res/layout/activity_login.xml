@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0sp"
+        android:layout_height="0sp"
+
+        android:layout_marginBottom="65sp"
+        android:background="#FFDB6D"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <org.tensorflow.demo.font.OutlineTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/gmarket"
+            android:gravity="center"
+            android:shadowColor="#000000"
+            android:shadowDx="2.0"
+            android:shadowDy="2.0"
+            android:shadowRadius="1.5"
+            android:text="Navi"
+            android:textColor="#ffffff"
+            android:textSize="25sp"
+            app:textStroke="true"
+            app:textStrokeColor="@android:color/black"
+            app:textStrokeWidth="5.0">
+
+        </org.tensorflow.demo.font.OutlineTextView>
+
+    </LinearLayout>
+
+    <EditText
+
+        android:id="@+id/login_id"
+        android:layout_width="0sp"
+        android:layout_height="0sp"
+        android:layout_marginStart="25sp"
+        android:layout_marginEnd="25sp"
+        android:layout_marginBottom="25sp"
+        android:background="@drawable/edittext_style2"
+        android:fontFamily="@font/gmarket"
+        android:hint="  아이디를 입력하세요"
+        app:layout_constraintBottom_toTopOf="@+id/login_password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/login_password"
+        android:layout_width="0sp"
+        android:layout_height="0sp"
+
+        android:layout_marginStart="25sp"
+        android:layout_marginEnd="25sp"
+        android:layout_marginBottom="25sp"
+        android:background="@drawable/edittext_style2"
+        android:fontFamily="@font/gmarket"
+        android:hint="  비밀번호를 입력하세요"
+        android:inputType="numberPassword"
+        app:layout_constraintBottom_toTopOf="@+id/login_gotoLogin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_id">
+
+    </EditText>
+
+    <Button
+        android:id="@+id/login_gotoJoin"
+        android:layout_width="0sp"
+        android:layout_height="0sp"
+        android:layout_marginStart="25sp"
+        android:layout_marginEnd="25sp"
+        android:layout_marginBottom="75sp"
+        android:background="@drawable/button_style2"
+        android:fontFamily="@font/gmarket"
+        android:text="회원가입"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_gotoLogin" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25sp"
+        android:layout_marginBottom="20sp"
+        android:fontFamily="@font/gmarket"
+        android:text="아이디와 비밀번호를 입력해주세요"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/login_id"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+
+        android:id="@+id/login_gotoLogin"
+        android:layout_width="0sp"
+        android:layout_height="0sp"
+        android:layout_marginStart="25sp"
+        android:layout_marginEnd="25sp"
+        android:layout_marginBottom="25sp"
+        android:background="@drawable/button_style2"
+        android:fontFamily="@font/gmarket"
+        android:text="로그인"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/login_gotoJoin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_password" />
+
+    <org.tensorflow.demo.font.OutlineTextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="90sp"
+        android:fontFamily="@font/gmarket"
+        android:shadowColor="#000000"
+        android:shadowDx="2.0"
+        android:shadowDy="2.0"
+        android:shadowRadius="1.5"
+        android:text="로그인"
+        android:textColor="#FAD251"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:textStroke="true"
+        app:textStrokeColor="@android:color/black"
+        app:textStrokeWidth="5.0" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

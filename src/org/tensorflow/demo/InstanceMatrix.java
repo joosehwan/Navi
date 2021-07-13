@@ -49,14 +49,7 @@ public class InstanceMatrix extends ArrayList<Hashtable<Integer,Integer>> {
 
     }
 
-    public void announceInstance(){
-        for(int row =0; row < this.row; row++){
-            for(int col = 0; col < this.col; col++){
 
-            }
-        }
-
-    }
 
 
 }
